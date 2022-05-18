@@ -1,3 +1,4 @@
+import json
 import logging
 import time
 from typing import Any, Iterator
@@ -32,13 +33,19 @@ def _request_json(url: str, headers: dict = None) -> dict:
     Returns:
         list of dicts
     """
-    page = requests.get(url, headers=headers)
-    return page.json()
+    try:
+        page = requests.get(url, headers=headers)
+    except (requests.exceptions.RequestException, requests.exceptions.ConnectionError) as e:
+        log.error(f"Error accessing page: {e}")
+        raise e
+    try:
+        return page.json()
+    except requests.JSONDecodeError as e:
+        log.error(f"Error decoding json: {e.args[0]}")
+        raise e
 
 
-def _construct_url(
-    domain_name: str, items_per_page: int, page_number: int
-) -> str:
+def _construct_url(domain_name: str, items_per_page: int, page_number: int) -> str:
     """construct url for shopify api request
 
     Args:

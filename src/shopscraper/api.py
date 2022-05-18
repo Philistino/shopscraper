@@ -1,8 +1,11 @@
+import logging
 import pathlib
 from typing import Iterator, Union
 
 from shopscraper import json_handler, prod_objs, scraper
 from shopscraper.prod_objs import Product
+
+log = logging.getLogger("shopscraper.api")
 
 
 def scrape(

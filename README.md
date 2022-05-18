@@ -94,7 +94,7 @@ class Image:
         position (int): position of image in product
         updated_at (datetime.datetime): datetime object of when image was last updated
         product_id (int): product id associated with the image
-        variant_ids (int): list of variant ids associated with the image
+        variant_ids (list[int]): list of variant ids associated with the image
         src (str): url to image
         width (int): width of image in pixels
         height (int): height of image in pixels
@@ -117,7 +117,7 @@ class Variant:
         option1 (str): first option of variant
         option2 (str): second option of variant
         option3 (str): third option of variant
-        sku (str): sku of variant
+        sku (Optional[str]): sku of variant
         requires_shipping (bool): whether variant requires shipping
         taxable (bool): whether variant is taxable
         featured_image (Image): featured image of variant
@@ -144,9 +144,9 @@ class Product:
         vendor (str): name of product vendor
         product_type (str): type of product
         tags (list[str]): tags associated with product
-        variants (list[ProductVariants]): list of variants for product
-        images (list[ProductImage]): list of images for product
-        options (list[ProductOptions]): list of options for product
+        variants (list[Variants]): list of variants for product
+        images (list[Image]): list of images for product
+        options (list[Options]): list of options for product
     """
 ```
 

@@ -4,11 +4,7 @@ import pathlib
 import pytest
 
 import shopscraper
-from shopscraper import __version__, json_handler, prod_objs
-
-
-def test_version():
-    assert __version__ == "0.1.0"
+from shopscraper import json_handler, prod_objs
 
 
 @pytest.fixture(scope="module")
@@ -24,9 +20,7 @@ def temp_dir(tmp_path: pathlib.Path):
 
 
 @pytest.mark.slow
-def test_scrape_to_json(
-    test_domain: str, temp_dir: pathlib.Path, product_data_single: dict
-):
+def test_scrape_to_json(test_domain: str, temp_dir: pathlib.Path, product_data_single: dict):
     file_path = temp_dir.joinpath("products.json")
     shopscraper.scrape_to_json(
         test_domain,
@@ -51,9 +45,7 @@ def test_scrape(test_domain: str, product_data_single: dict):
     )
     results_list = list(results)
     assert len(results_list) == 4
-    assert sorted(results_list[0].__dict__.keys()) == sorted(
-        product_data_single.keys()
-    )
+    assert sorted(results_list[0].__dict__.keys()) == sorted(product_data_single.keys())
 
 
 @pytest.mark.parametrize("include_html", [True, False])
@@ -61,9 +53,6 @@ def test_read_json(include_html, temp_dir: pathlib.Path, products: list[dict]):
     file_path = temp_dir.joinpath("products.json")
     json_handler.save_json(products, file_path, include_html=include_html)
     results = shopscraper.read_json(file_path, include_html=include_html)
-    expected = (
-        prod_objs.product_factory(i, include_html=include_html)
-        for i in products
-    )
+    expected = (prod_objs.product_factory(i, include_html=include_html) for i in products)
     for result, expect in zip(results, expected):
         assert result == expect

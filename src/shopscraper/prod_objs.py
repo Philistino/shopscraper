@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, Union
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -13,7 +13,7 @@ class Image(BaseModel):
         position (int): position of image in product
         updated_at (datetime.datetime): datetime object of when image was last updated
         product_id (int): product id associated with the image
-        variant_ids (int): list of variant ids associated with the image
+        variant_ids (list[int]): list of variant ids associated with the image
         src (str): url to image
         width (int): width of image in pixels
         height (int): height of image in pixels
@@ -103,9 +103,9 @@ class Product(BaseModel):
         vendor (str): name of product vendor
         product_type (str): type of product
         tags (list[str]): tags associated with product
-        variants (list[ProductVariants]): list of variants for product
-        images (list[ProductImage]): list of images for product
-        options (list[ProductOptions]): list of options for product
+        variants (list[Variants]): list of variants for product
+        images (list[Image]): list of images for product
+        options (list[Options]): list of options for product
     """
 
     id: int
