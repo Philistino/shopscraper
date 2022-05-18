@@ -74,7 +74,7 @@ class Variant(BaseModel):
     option1: Optional[str]
     option2: Optional[str]
     option3: Optional[str]
-    sku: str
+    sku: Optional[str]
     requires_shipping: bool
     taxable: bool
     featured_image: Optional[Image]
