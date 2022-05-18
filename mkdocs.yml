@@ -1,0 +1,30 @@
+site_name: shopscraper
+repo_url: https://github.com/philistino/shopscraper
+site_url: https://philistino.github.io/shopscraper
+site_description: ShopScraper is a thin python wrapper for Shopify webshop product APIs used to scrape information from online stores.
+site_author: Philistino
+
+nav:
+  - Home: index.md
+  - Modules: modules.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+            setup_commands:
+                - import sys
+                - sys.path.append('../')
+copyright: Maintained by Philistino.
+theme:
+  name: material
+  feature:
+    tabs: true
+  palette:
+    primary: white
+    accent: blue
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
