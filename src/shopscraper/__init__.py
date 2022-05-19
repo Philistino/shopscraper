@@ -1,4 +1,4 @@
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 import logging
 
 from shopscraper.api import read_json, scrape, scrape_to_json

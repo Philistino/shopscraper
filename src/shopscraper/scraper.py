@@ -1,6 +1,6 @@
 import logging
 import time
-from typing import Any, Iterator
+from typing import Any, Iterator, Optional
 
 import requests
 
@@ -23,7 +23,7 @@ def _validate_integer_arg(arg: Any) -> int:
         raise ValueError("Argument must be an integer") from e
 
 
-def _request_json(url: str, headers: dict = None) -> Any:
+def _request_json(url: str, headers: Optional[dict[str, str]] = None) -> Any:
     """
     download json product page from bjjfanatics.com
 

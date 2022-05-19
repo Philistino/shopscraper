@@ -53,7 +53,7 @@ def _random_user_agent() -> str:
     return _USER_AGENT_TPL % random.choice(_CHROME_VERSIONS)
 
 
-def get_headers() -> dict[str]:
+def get_headers() -> dict[str, str]:
     """
     Returns a dictionary of headers to be used for HTTP requests
 
