@@ -14,7 +14,9 @@ def test_validate_integer_arg():
 
 
 def test_construct_url():
-    assert "https://bingo.com/products.json?limit=2&page=1" == scraper._construct_url("bingo.com", 2, 1)
+    assert "https://bingo.com/products.json?limit=2&page=1" == scraper._construct_url(
+        "bingo.com", 2, 1
+    )
 
 
 @pytest.mark.slow
