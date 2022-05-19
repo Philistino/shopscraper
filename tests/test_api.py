@@ -3,7 +3,7 @@ import pathlib
 
 import pytest
 
-from shopscraper import api, json_handler, prod_objs, scraper
+from shopscraper import api, json_handler, prod_objs
 
 
 @pytest.fixture(scope="module")

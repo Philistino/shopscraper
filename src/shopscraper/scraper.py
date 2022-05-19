@@ -1,4 +1,3 @@
-import json
 import logging
 import time
 from typing import Any, Iterator
@@ -20,8 +19,8 @@ def _validate_integer_arg(arg: Any) -> int:
     """
     try:
         return int(arg)
-    except:
-        raise ValueError("Argument must be an integer")
+    except ValueError as e:
+        raise ValueError("Argument must be an integer") from e
 
 
 def _request_json(url: str, headers: dict = None) -> dict:
