@@ -3,16 +3,12 @@ import pathlib
 from typing import Iterator, Union
 
 
-def _write_first_product_dict(
-    file_path: Union[str, pathlib.Path], product: dict
-):
+def _write_first_product_dict(file_path: Union[str, pathlib.Path], product: dict):
     with open(file_path, "w") as f:
         f.write(f"[{json.dumps(product)}")
 
 
-def _write_non_first_product_dict(
-    file_path: Union[str, pathlib.Path], product: dict
-):
+def _write_non_first_product_dict(file_path: Union[str, pathlib.Path], product: dict):
     with open(file_path, "a") as f:
         f.write(f",{json.dumps(product)}")
 
