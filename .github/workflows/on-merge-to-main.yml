@@ -1,9 +1,10 @@
 on:
-    push:
-        branches:
-            - main
-        tags-ignore:
-            - '**'
+  push:
+    branches:
+      - main
+      - master
+    tags-ignore:
+      - "**"
 
 name: merge-to-main
 
@@ -11,7 +12,6 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-
       - name: Check out
         uses: actions/checkout@v2
 
@@ -31,17 +31,17 @@ jobs:
     needs: quality
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10']
+        python-version: ["3.8", "3.9", "3.10"]
     steps:
       - name: Check out
         uses: actions/checkout@v2
 
       - name: Set up the environment
         uses: ./.github/workflows/setup-poetry-env
-        with: 
+        with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Test with tox 
+      - name: Test with tox
         run: |
           source .venv/bin/activate
           poetry add tox-gh-actions
