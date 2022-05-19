@@ -68,7 +68,6 @@ def read_json_file(
 
     Args:
         file_path: path to json file
-        include_html: whether to include body_html field in product objects if it exists in json file, default True
     Yields:
         ShopifyProduct objects
     """
