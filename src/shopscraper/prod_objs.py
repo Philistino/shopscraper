@@ -126,7 +126,7 @@ class Product(BaseModel):
 def product_factory(
     product_dict: dict,
     include_html: bool = True,
-) -> list[Product]:
+) -> Product:
     """create Title objects from list of dicts
 
     Args:

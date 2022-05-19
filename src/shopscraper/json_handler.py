@@ -1,24 +1,24 @@
 import json
 import pathlib
-from typing import Iterator, Union
+from typing import Any, Iterator, Union
 
 
-def _write_first_product_dict(file_path: Union[str, pathlib.Path], product: dict):
+def _write_first_product_dict(file_path: Union[str, pathlib.Path], product: dict) -> None:
     with open(file_path, "w") as f:
         f.write(f"[{json.dumps(product)}")
 
 
-def _write_non_first_product_dict(file_path: Union[str, pathlib.Path], product: dict):
+def _write_non_first_product_dict(file_path: Union[str, pathlib.Path], product: dict) -> None:
     with open(file_path, "a") as f:
         f.write(f",{json.dumps(product)}")
 
 
-def _write_final_bracket_to_json_file(file_path: Union[str, pathlib.Path]):
+def _write_final_bracket_to_json_file(file_path: Union[str, pathlib.Path]) -> None:
     with open(file_path, "a") as f:
         f.write("]")
 
 
-def _manage_html(product: dict, include_html: bool):
+def _manage_html(product: dict, include_html: bool) -> dict:
     if not include_html:
         product = product.copy()
         product["body_html"] = ""
@@ -63,7 +63,7 @@ def save_json(
 
 def read_json_file(
     file_path: Union[str, pathlib.Path],
-) -> list[dict]:
+) -> Any:
     """creates and yields product objects from json file using write_products_to_json_file function
 
     Args:

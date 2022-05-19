@@ -1,7 +1,7 @@
 import random
 
 
-def _random_user_agent():
+def _random_user_agent() -> str:
     """
     Returns a random user agent string
 
@@ -53,7 +53,7 @@ def _random_user_agent():
     return _USER_AGENT_TPL % random.choice(_CHROME_VERSIONS)
 
 
-def get_headers():
+def get_headers() -> dict[str]:
     """
     Returns a dictionary of headers to be used for HTTP requests
 
