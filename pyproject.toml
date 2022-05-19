@@ -59,5 +59,7 @@ warn_unused_ignores = "False"
 show_error_codes = "False"
 exclude = [
     '\.venv',
-    '/tests'
+    '/tests',
+    "tests",
+    "tests/",
 ]
