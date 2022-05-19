@@ -20,14 +20,15 @@ def scrape(
     Args:
         domain_name: fully qualified domain name to webshop (e.g., www.myshopify.com)
         include_html: whether to include body_html field in product objects, default True
-        items_per_page: number of items per page, default 250
+        items_per_page: number of items per page. maximum 250, default 250
         max_pages: max number of pages to request, default 999
     Yields:
         ShopifyProduct objects
     """
+    n_items = min(items_per_page, 250)
     products = scraper.yield_product_dicts(
         domain_name,
-        items_per_page=items_per_page,
+        items_per_page=n_items,
         max_pages=max_pages,
     )
     for product in products:
@@ -71,9 +72,10 @@ def scrape_to_json(
     Returns:
         pathlib.Path object to json file
     """
+    n_items = min(items_per_page, 250)
     products = scraper.yield_product_dicts(
         domain_name,
-        items_per_page=items_per_page,
+        items_per_page=n_items,
         max_pages=max_pages,
     )
     file_path = pathlib.Path(file_path)
