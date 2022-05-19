@@ -1,6 +1,6 @@
 import logging
 import pathlib
-from typing import Iterator, Union
+from typing import Union
 
 from shopscraper import json_handler, prod_objs, scraper
 from shopscraper.prod_objs import Product
