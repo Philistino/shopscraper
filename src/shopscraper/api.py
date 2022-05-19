@@ -1,6 +1,6 @@
 import logging
 import pathlib
-from typing import Union
+from typing import Generator, Union
 
 from shopscraper import json_handler, prod_objs, scraper
 from shopscraper.prod_objs import Product
@@ -14,7 +14,7 @@ def scrape(
     include_html: bool = True,
     items_per_page: int = 250,
     max_pages: int = 999,
-) -> Product:
+) -> Generator[Product]:
     """download products from shopify api and returns product objects
 
     Args:
@@ -38,7 +38,7 @@ def read_json(
     file_path: Union[str, pathlib.Path],
     *,
     include_html: bool = True,
-) -> Product:
+) -> Generator[Product]:
     """creates and yields product objects from json file using write_products_to_json_file function
 
     Args:
