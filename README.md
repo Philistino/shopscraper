@@ -67,7 +67,7 @@ options=[
 
 ```
 
-[python-versions-badge]: https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9%20%7C%203.10-blue
+[python-versions-badge]: https://img.shields.io/badge/python-3.9%20%7C%203.10-blue
 
 ## Installation
 
