@@ -1,4 +1,6 @@
 __version__ = "0.0.4"
+from __future__ import annotations
+
 import logging
 from logging import NullHandler
 
