@@ -2,13 +2,12 @@ __version__ = "0.0.4"
 import logging
 from logging import NullHandler
 
+logging.getLogger(__name__).addHandler(NullHandler())
 from shopscraper.api import read_json, scrape, scrape_to_json
 from shopscraper.prod_objs import Image, Product, Variant
 
-logging.getLogger(__name__).addHandler(NullHandler())
 
-
-def add_stderr_logger(level: int = logging.DEBUG) -> "logging.StreamHandler[TextIO]":
+def add_stderr_logger(level: int = logging.DEBUG) -> logging.StreamHandler:
     """
     Helper for quickly adding a StreamHandler to the logger. Useful for
     debugging.
