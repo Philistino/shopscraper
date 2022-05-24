@@ -6,7 +6,7 @@ import requests
 
 from shopscraper import headers
 
-log = logging.getLogger("shopscraper.scraper")
+log = logging.getLogger(__name__)
 
 
 def _validate_integer_arg(arg: Any) -> int:
@@ -73,7 +73,7 @@ def yield_product_dicts(
     [_validate_integer_arg(i) for i in (items_per_page, max_pages)]
     request_headers = headers.get_headers()
     while True:
-        log.debug(f"Fetching page number: {page_number}")
+        log.info(f"Fetching page number: {page_number}")
         url = _construct_url(domain_name, items_per_page, page_number)
         data = _request_json(url, headers=request_headers)
         products = data["products"]
