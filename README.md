@@ -69,6 +69,9 @@ options=[
 
 [python-versions-badge]: https://img.shields.io/badge/python-3.9%20%7C%203.10-blue
 
+![Tests](https://github.com/Philistino/shopscraper/actions/workflows/on-merge-to-main.yml/badge.svg)
+
+
 ## Installation
 
 ShopScraper is available on PyPI:
@@ -77,7 +80,7 @@ ShopScraper is available on PyPI:
 $ python -m pip install shopscraper
 ```
 
-ShopScraper officially supports Python 3.7+.
+ShopScraper officially supports Python 3.9+.
 
 
 # Usage
