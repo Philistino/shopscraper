@@ -3,7 +3,7 @@
 [![Build status](https://img.shields.io/github/workflow/status/Philistino/shopscraper/merge-to-main)](https://img.shields.io/github/workflow/status/Philistino/shopscraper/merge-to-main)
 [![License](https://img.shields.io/github/license/Philistino/shopscraper)](https://img.shields.io/github/license/Philistino/shopscraper)
 
-ShopScraper is a thin python wrapper for Shopify webshop product APIs used to scrape information from online stores. Every Shopify webshop has a "hidden" api with access to all of the store's products. This python package uses the requests library to grab the product information and return objects representing each product. There are also convenience functions for saving to and reading from a JSON file.
+ShopScraper is a python wrapper for Shopify webshop product APIs for scraping product information. Every Shopify webshop has a "hidden" api with access to all of the store's products. This python package uses the requests library to grab the product information and yield objects representing each product. There are also convenience functions for saving to and reading from a JSON file.
 
 ```python
 >>> import shopscraper
@@ -35,7 +35,7 @@ variants=[
         taxable=True, 
         featured_image=None, 
         available=True, 
-        price=19700, 
+        price=197.00, 
         grams=0, 
         compare_at_price=None, 
         position=1, 
