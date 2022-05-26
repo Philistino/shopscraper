@@ -78,7 +78,7 @@ ShopScraper is available on PyPI:
 $ python -m pip install shopscraper
 ```
 
-ShopScraper officially supports Python 3.9+.
+ShopScraper officially supports Python 3.9-3.10 on macOS, Windows 10-11, and Linux (tested on Ubuntu).
 
 
 # Usage
